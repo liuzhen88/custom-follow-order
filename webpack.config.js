@@ -1,7 +1,5 @@
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
-var openBrowserPlugin = require('open-browser-webpack-plugin');
-var config = require('./webpack.port.config');
 module.exports = {
     devtool: 'eval-source-map',
     entry:  __dirname + "/index.js",
@@ -37,7 +35,6 @@ module.exports = {
 
     plugins:[
         new webpack.BannerPlugin('Copyright Chvin'),
-        new webpack.HotModuleReplacementPlugin(),
-        new openBrowserPlugin({ url: config.startUrl })
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
