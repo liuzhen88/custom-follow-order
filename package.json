@@ -27,7 +27,8 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
-    "babel-plugin-import": "^1.1.0"
+    "babel-plugin-import": "^1.1.0",
+    "open-browser-webpack-plugin": "^0.0.4"
   },
   "dependencies": {
     "react": "^15.0.1",
