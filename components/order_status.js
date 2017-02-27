@@ -23,7 +23,6 @@ let OrderStatus = React.createClass({
 			status:'全部'
 		}
 		this.props.dispatch(actions.orderStatusAsync(list));
-		console.log(this.props.orderStatus);
 	},
 	render(){
 		return (
