@@ -1,0 +1,36 @@
+*{padding: 0;margin: 0;}
+body{font-size: 14px;font-family: '微软雅黑'}
+.container{width: 100%;height: 100%;background: #000;}
+.header{width: 100%;text-align: center;padding-top: 50px;}
+.title{width: 280px;text-align: center;margin: 0 auto;letter-spacing: 5px;border-bottom: rgba(255,255,255,0.2) solid 1px;height: 60px;line-height: 60px;font-style: italic;color: #fff;}
+.username,.password{width: 280px;height: 50px;border:rgba(255,255,255,0.2) 2px solid !important;border-radius: 50px;margin: 20px auto;position: relative;}
+.span{display:inline-block;height: 50px;line-height: 50px;width: 50px;margin-left: 30px;color: #fff;}
+.input{height: 30px;border:none;outline: none;background: none;color: #fff;position: absolute;left: 90px;top: 9px;}
+#btn{background: #0096e6;width: 280px;height: 50px;line-height: 50px;text-align: center;margin: 10px auto;border-radius: 50px;cursor: pointer;margin-top: 30px;color: #fff;}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+    -webkit-text-fill-color: #fff !important;
+}
+input:-moz-autofill {
+    -moz-box-shadow: 0 0 0px 1000px #000 inset;
+    -moz-text-fill-color: #fff !important;
+}
+.react-title{
+	background: #00b9ff;
+	color: #fff;
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	text-align: center;
+	font-size: 14px;
+}
+.back{
+	position: absolute;
+	left: 10px;
+	top: 6px;
+	cursor: pointer;
+}
+.table-container{
+	width: 100%;
+	/*overflow-x:scroll;*/ 
+}
