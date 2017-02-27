@@ -122,6 +122,7 @@ let CombineProductPlan = React.createClass({
 	render(){
 		return (
 			<div>
+				<Title/>
 				<div className='table-container'>
 					<div className='table-cont'>
 						<Table
