@@ -1,3 +1,8 @@
+/*
+*	name:订单状态表一级
+*	author: liuzhen
+*	time: 2017/2/27
+*/
 import React from 'react';
 import $ from 'jquery';
 import { bindActionCreators } from 'redux';

@@ -1,3 +1,8 @@
+/*
+*	name:config配置
+*	author: liuzhen
+*	time: 2017/2/27
+*/
 let config = {
 	serverUrl: "https://inkanban.cn/weixin",
 	localServerUrl: "https://localhost:4000/weixin",

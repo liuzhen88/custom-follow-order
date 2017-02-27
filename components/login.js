@@ -1,3 +1,8 @@
+/*
+*	name:登录组件
+*	author: liuzhen
+*	time: 2017/2/27
+*/
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
