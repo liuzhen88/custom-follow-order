@@ -1,25 +1,24 @@
 /*
-*	name:订单状态表二级
+*	name:订单状态表三级
 *	author: liuzhen
 *	time: 2017/2/27
 */
 import React from 'react';
 import $ from 'jquery';
 import { Table } from 'antd';
-import { Link } from 'react-router';
 import Title from './title';
 import config from './config';
 
 const { Column } = Table;
 const serverUrl = config.serverUrl;
 
-let CombineProductPlan = React.createClass({
+let WorkPlanMachineDetail = React.createClass({
 	getInitialState() {
 		return {
 			columns:[
 				{
-					title:'工段制造号',
-					dataIndex:'gdzzh'
+					title:'机台号',
+					dataIndex:'jth'
 				},
 				{
 					title:'结构-直径',
@@ -74,20 +73,16 @@ let CombineProductPlan = React.createClass({
 					dataIndex:'wwcjs'
 				},
 				{
-					title:'可用存量',
-					dataIndex:'kycl'
+					title:'计划完成时间',
+					dataIndex:'jhwcsj'
 				},
 				{
-					title:'预计完成时间',
-					dataIndex:'yjwcsj'
+					title:'实际完成时间',
+					dataIndex:'sjwcsj'
 				},
 				{
 					title:'状态',
 					dataIndex:'zt'
-				},
-				{
-					title:'在制机台数',
-					dataIndex:'zzjts'
 				}
 			],
 			dataSource:[],
@@ -98,11 +93,11 @@ let CombineProductPlan = React.createClass({
 		}	
 	},
 	componentDidMount() {
-		let query = this.props.location.query;
 		let that = this;
+		let query = this.props.location.query;
 		query.tenant = 'swgl';
 		$.ajax({
-			url:serverUrl+'/getOrderStatusDetail',
+			url:serverUrl+'/getOrderStatusJth',
 			type:'get',
 			dataType:'jsonp',
 			jsonp:'callback',
@@ -144,33 +139,6 @@ let CombineProductPlan = React.createClass({
 											</Column>
 								})
 							}
-							<Column
-								title='操作'
-								key='action'
-								render={
-									(text,record) => {
-										if(record.gdzzh!=''){
-											return (
-												<Link to={
-													{
-														pathname:'/workPlanMachineDetail',
-														query:{
-															gdzzh:record.gdzzh
-														}
-													}
-												}>
-													查看
-												</Link>
-											)
-										}else{
-											return (
-												<a></a>
-											)
-										}
-									}
-								}
-							>
-							</Column>
 						</Table>
 					</div>
 				</div>
@@ -179,4 +147,4 @@ let CombineProductPlan = React.createClass({
 	}
 });
 
-export default CombineProductPlan;
+export default WorkPlanMachineDetail;

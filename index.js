@@ -5,6 +5,7 @@ import { Router, Route , hashHistory } from 'react-router';
 import Login from './components/login';
 import OrderStatus from './components/order_status';
 import CombineProductPlan from './components/combine_product_plan';
+import WorkPlanMachineDetail from './components/work_plan_machine_detail';
 import store from './store/store';
 import './style/app.css';
 
@@ -15,6 +16,7 @@ render (
 			<Route path='/login' components={Login}></Route>
 			<Route path='/orderStatus' components={OrderStatus}></Route>
 			<Route path='/combineProductPlan' components={CombineProductPlan}></Route>
+			<Route path='/workPlanMachineDetail' components={WorkPlanMachineDetail}></Route>
 		</Router>
 	</Provider>,
 	document.getElementById('root'),
