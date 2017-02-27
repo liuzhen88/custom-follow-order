@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Table } from 'antd';
+import { Link } from 'react-router';
 import actions from '../actions/action';
 import Title from './title';
 import config from './config';
@@ -50,6 +51,27 @@ let OrderStatus = React.createClass({
 											</Column>
 								})
 							}
+							<Column
+								title='操作'
+								key='action'
+								render={(text, record) => (
+									<Link to={
+										{
+											pathname:'/combineProductPlan',
+											query:{
+												id:record.id,
+												jgzj:record.jgzj,
+												status:record.status,
+												cpbh:record.cpbh,
+												lx:record.lx
+											}
+										}
+									}>
+										查看
+									</Link>
+								)}
+							>
+							</Column>
 						</Table>
 					</div>
 				</div>
