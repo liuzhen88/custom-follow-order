@@ -18,11 +18,13 @@ const serverUrl = config.serverUrl;
 
 let OrderStatus = React.createClass({
 	getInitialState() {
+		let tenants = this.props.tenant;
 		return {
 			jgzj:[],
 			ddh:[],
 			status:['未完工','已完工'],
-			defaultOrderNum:'全部'
+			defaultOrderNum:'全部',
+			tenant:tenants
 		}	
 	},
 	componentDidMount() {
@@ -57,12 +59,18 @@ let OrderStatus = React.createClass({
 	handleSearch(){
 		let tenants = this.props.tenant;
 		let mobile = localStorage.getItem('mobile');
+		let selectTenant = document.getElementById('zh').value;
+		if(selectTenant == '全部'){
+			var sendTenant = tenants;
+		}else{
+			var sendTenant = [selectTenant];
+		}
 		this.props.dispatch(actions.orderStatusAsync({
 			jgzj:document.getElementById('jgzj').value,
 			ddh:document.getElementById('ddh').value,
 			status:document.getElementById('zt').value,
 			mobile:mobile,
-			tenant:JSON.stringify(tenants)
+			tenant:JSON.stringify(sendTenant)
 		}));
 	},
 	render(){
@@ -98,6 +106,17 @@ let OrderStatus = React.createClass({
 							<option value='全部'>全部</option>
 							{
 								this.state.status.map(function(item){
+									return <option key={item} value={item}>{item}</option>
+								})
+							}
+						</select>
+					</div>
+					<div className='selection'>
+						<span>租户 : </span>
+						<select className='select' id='zh' defaultValue='全部'>
+							<option value='全部'>全部</option>
+							{
+								this.state.tenant.map(function(item){
 									return <option key={item} value={item}>{item}</option>
 								})
 							}
