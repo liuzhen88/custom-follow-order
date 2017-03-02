@@ -7,7 +7,7 @@ import React from 'react';
 import $ from 'jquery';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Table } from 'antd';
+import { Table, Button } from 'antd';
 import { Link } from 'react-router';
 import actions from '../actions/action';
 import Title from './title';
@@ -17,6 +17,14 @@ const { Column } = Table;
 const serverUrl = config.serverUrl;
 
 let OrderStatus = React.createClass({
+	getInitialState() {
+		return {
+			jgzj:[],
+			ddh:[],
+			status:['未完工','已完工'],
+			defaultOrderNum:'全部'
+		}	
+	},
 	componentDidMount() {
 		let tenants = this.props.tenant;
 		let mobile = localStorage.getItem('mobile');
@@ -33,6 +41,43 @@ let OrderStatus = React.createClass({
 		return (
 			<div>
 				<Title/>
+				<div className='time-container'>
+					<div className='selection'>
+						<span>订单号 : </span>
+						<select className='select' id='ddh' defaultValue={this.state.defaultOrderNum}>
+							<option value='全部'>全部</option>
+							{
+								this.state.ddh.map(function(item){
+									return <option key={item} value={item}>{item}</option>
+								})
+							}
+						</select>
+					</div>
+					<div className='selection'>
+						<span>结构直径 : </span>
+						<select className='select' id='jgzj' defaultValue='全部'>
+							<option value='全部'>全部</option>
+							{
+								this.state.jgzj.map(function(item){
+									return <option key={item} value={item}>{item}</option>
+								})
+							}
+						</select>
+					</div>
+					<div className='selection'>
+						<span>状态 : </span>
+						<select className='select' id='zt' defaultValue='全部'>
+							<option value='全部'>全部</option>
+							{
+								this.state.status.map(function(item){
+									return <option key={item} value={item}>{item}</option>
+								})
+							}
+						</select>
+					</div>
+					<Button type="primary" icon="search" id='search' onClick={this.handleSearch}>查询</Button>
+					<div className='clear'></div>
+				</div>
 				<div className='table-container'>
 					<div className='table-cont'>
 						<Table
