@@ -168,6 +168,27 @@ let OrderStatus = React.createClass({
 								)}
 							>
 							</Column>
+							<Column
+								title="步骤图"
+								key='actions'
+								render={(text, record) => (
+									<Link to={
+										{
+											pathname:'/steps',
+											query:{
+												id:record.id,
+												jgzj:record.jgzj,
+												status:record.status,
+												cpbh:record.cpbh,
+												lx:record.lx
+											}
+										}
+									}>
+										查看
+									</Link>
+								)}
+							>
+							</Column>
 						</Table>
 					</div>
 				</div>
