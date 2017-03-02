@@ -26,6 +26,7 @@ let OrderStatus = React.createClass({
 		}	
 	},
 	componentDidMount() {
+		let that = this;
 		let tenants = this.props.tenant;
 		let mobile = localStorage.getItem('mobile');
 		let list = {
@@ -36,6 +37,33 @@ let OrderStatus = React.createClass({
 			status:'全部'
 		}
 		this.props.dispatch(actions.orderStatusAsync(list));
+		$.ajax({
+			url:serverUrl + '/getOrderStatusSelect',
+			type:'get',
+			data:{
+				tenant:JSON.stringify(tenants),
+				mobile:mobile
+			},
+			dataType:'jsonp',
+			jsonp:'callback',
+			success:function(data){
+				that.setState({
+					ddh:data.ddh,
+					jgzj:data.jgzj
+				});
+			}
+		});
+	},
+	handleSearch(){
+		let tenants = this.props.tenant;
+		let mobile = localStorage.getItem('mobile');
+		this.props.dispatch(actions.orderStatusAsync({
+			jgzj:document.getElementById('jgzj').value,
+			ddh:document.getElementById('ddh').value,
+			status:document.getElementById('zt').value,
+			mobile:mobile,
+			tenant:JSON.stringify(tenants)
+		}));
 	},
 	render(){
 		return (
