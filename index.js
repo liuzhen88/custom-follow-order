@@ -6,6 +6,7 @@ import Login from './components/login';
 import OrderStatus from './components/order_status';
 import CombineProductPlan from './components/combine_product_plan';
 import WorkPlanMachineDetail from './components/work_plan_machine_detail';
+import Step from './components/step';
 import store from './store/store';
 import './style/app.css';
 
@@ -17,6 +18,7 @@ render (
 			<Route path='/orderStatus' components={OrderStatus}></Route>
 			<Route path='/combineProductPlan' components={CombineProductPlan}></Route>
 			<Route path='/workPlanMachineDetail' components={WorkPlanMachineDetail}></Route>
+			<Route path='/step' components={Step}></Route>
 		</Router>
 	</Provider>,
 	document.getElementById('root'),
