@@ -44,6 +44,7 @@ let Login = React.createClass({
 				if(data.code == '200'){
 					let tenants = data.data.userTenants;
 					that.props.dispatch(actions.tenantAction(tenants));
+					localStorage.setItem('tenants',JSON.stringify(tenants));
 					localStorage.setItem('mobile',mobile);
 					history.push('/');
 					history.replace('/orderStatus');

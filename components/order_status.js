@@ -19,6 +19,9 @@ const serverUrl = config.serverUrl;
 let OrderStatus = React.createClass({
 	getInitialState() {
 		let tenants = this.props.tenant;
+		if(tenants.length == 0){
+			tenants = JSON.parse(localStorage.getItem('tenants'));
+		}
 		return {
 			jgzj:[],
 			ddh:[],
@@ -30,6 +33,9 @@ let OrderStatus = React.createClass({
 	componentDidMount() {
 		let that = this;
 		let tenants = this.props.tenant;
+		if(tenants.length == 0){
+			tenants = JSON.parse(localStorage.getItem('tenants'));
+		}
 		let mobile = localStorage.getItem('mobile');
 		let list = {
 			mobile:mobile,
