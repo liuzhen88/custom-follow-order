@@ -100,7 +100,6 @@ let CombineProductPlan = React.createClass({
 	componentDidMount() {
 		let query = this.props.location.query;
 		let that = this;
-		query.tenant = 'swgl';
 		$.ajax({
 			url:serverUrl+'/getOrderStatusDetail',
 			type:'get',
@@ -155,7 +154,8 @@ let CombineProductPlan = React.createClass({
 													{
 														pathname:'/workPlanMachineDetail',
 														query:{
-															gdzzh:record.gdzzh
+															gdzzh:record.gdzzh,
+															tenant:record.tenant
 														}
 													}
 												}>

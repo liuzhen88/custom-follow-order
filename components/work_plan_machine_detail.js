@@ -95,7 +95,6 @@ let WorkPlanMachineDetail = React.createClass({
 	componentDidMount() {
 		let that = this;
 		let query = this.props.location.query;
-		query.tenant = 'swgl';
 		$.ajax({
 			url:serverUrl+'/getOrderStatusJth',
 			type:'get',

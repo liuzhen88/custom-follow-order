@@ -159,7 +159,8 @@ let OrderStatus = React.createClass({
 												jgzj:record.jgzj,
 												status:record.status,
 												cpbh:record.cpbh,
-												lx:record.lx
+												lx:record.lx,
+												tenant:record.tenant
 											}
 										}
 									}>
