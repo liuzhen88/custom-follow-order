@@ -175,7 +175,7 @@ let OrderStatus = React.createClass({
 								render={(text, record) => (
 									<Link to={
 										{
-											pathname:'/step',
+											pathname:'/progress',
 											query:{
 												id:record.id,
 												jgzj:record.jgzj,
